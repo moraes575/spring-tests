@@ -3,6 +3,7 @@ package com.moraes.springtests.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "addresses")
@@ -28,19 +29,19 @@ public class Address {
     @Column(nullable = false)
     private String zipCode;
 
-    @OneToOne(mappedBy = "address")
-    private Member member;
+    @OneToMany(mappedBy = "address")
+    private Set<Member> members;
 
     public Address() {
     }
 
-    public Address(Long id, String street, String city, String state, String zipCode, Member member) {
+    public Address(Long id, String street, String city, String state, String zipCode, Set<Member> members) {
         this.id = id;
         this.street = street;
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
-        this.member = member;
+        this.members = members;
     }
 
     public Long getId() {
@@ -83,12 +84,12 @@ public class Address {
         this.zipCode = zipCode;
     }
 
-    public Member getMember() {
-        return member;
+    public Set<Member> getMember() {
+        return members;
     }
 
-    public void setMember(Member member) {
-        this.member = member;
+    public void setMember(Set<Member> members) {
+        this.members = members;
     }
 
     @Override

@@ -25,7 +25,7 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private Set<Rental> rentals;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "address_id")
     private Address address;
 
