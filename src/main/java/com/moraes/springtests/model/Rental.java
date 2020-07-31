@@ -5,7 +5,8 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class MovieRentals {
+@Table(name = "rentals")
+public class Rental {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +27,10 @@ public class MovieRentals {
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
-    public MovieRentals() {
+    public Rental() {
     }
 
-    public MovieRentals(Long id, Date transactionDate, Date returnDate, Member member, Movie movie) {
+    public Rental(Long id, Date transactionDate, Date returnDate, Member member, Movie movie) {
         this.id = id;
         this.transactionDate = transactionDate;
         this.returnDate = returnDate;
@@ -80,8 +81,8 @@ public class MovieRentals {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof MovieRentals)) return false;
-        MovieRentals that = (MovieRentals) o;
+        if (!(o instanceof Rental)) return false;
+        Rental that = (Rental) o;
         return getId().equals(that.getId());
     }
 

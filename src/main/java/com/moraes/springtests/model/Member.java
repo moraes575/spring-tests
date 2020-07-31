@@ -23,7 +23,7 @@ public class Member {
     private Date birthDate;
 
     @OneToMany(mappedBy = "member")
-    private Set<MovieRentals> rentals;
+    private Set<Rental> rentals;
 
     @OneToOne
     @JoinColumn(name = "address_id")
@@ -32,7 +32,7 @@ public class Member {
     public Member() {
     }
 
-    public Member(Long id, String name, Date birthDate, Set<MovieRentals> rentals, Address address) {
+    public Member(Long id, String name, Date birthDate, Set<Rental> rentals, Address address) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
@@ -64,11 +64,11 @@ public class Member {
         this.birthDate = birthDate;
     }
 
-    public Set<MovieRentals> getRentals() {
+    public Set<Rental> getRentals() {
         return rentals;
     }
 
-    public void setRentals(Set<MovieRentals> rentals) {
+    public void setRentals(Set<Rental> rentals) {
         this.rentals = rentals;
     }
 

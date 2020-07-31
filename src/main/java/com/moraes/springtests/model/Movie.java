@@ -31,12 +31,12 @@ public class Movie {
     private Category category;
 
     @OneToMany(mappedBy = "movie")
-    private Set<MovieRentals> rentals;
+    private Set<Rental> rentals;
 
     public Movie() {
     }
 
-    public Movie(Long id, String title, String director, Date releasedDate, Category category, Set<MovieRentals> rentals) {
+    public Movie(Long id, String title, String director, Date releasedDate, Category category, Set<Rental> rentals) {
         this.id = id;
         this.title = title;
         this.director = director;
@@ -85,11 +85,11 @@ public class Movie {
         this.category = category;
     }
 
-    public Set<MovieRentals> getRentals() {
+    public Set<Rental> getRentals() {
         return rentals;
     }
 
-    public void setRentals(Set<MovieRentals> rentals) {
+    public void setRentals(Set<Rental> rentals) {
         this.rentals = rentals;
     }
 
