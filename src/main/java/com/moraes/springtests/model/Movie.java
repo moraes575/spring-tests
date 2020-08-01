@@ -1,8 +1,11 @@
 package com.moraes.springtests.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -30,8 +33,9 @@ public class Movie {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "movie")
-    private Set<Rental> rentals;
+    private Set<Rental> rentals = new HashSet<>();
 
     public Movie() {
     }

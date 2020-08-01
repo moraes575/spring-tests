@@ -1,5 +1,7 @@
 package com.moraes.springtests.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
@@ -22,6 +24,7 @@ public class Member {
     @Column(nullable = false)
     private Date birthDate;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "member")
     private Set<Rental> rentals;
 

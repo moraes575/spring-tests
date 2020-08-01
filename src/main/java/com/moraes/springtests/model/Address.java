@@ -1,5 +1,7 @@
 package com.moraes.springtests.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
@@ -84,6 +86,7 @@ public class Address {
         this.zipCode = zipCode;
     }
 
+    @JsonIgnore
     public Set<Member> getMember() {
         return members;
     }

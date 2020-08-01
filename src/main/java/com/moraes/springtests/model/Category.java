@@ -1,5 +1,7 @@
 package com.moraes.springtests.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
@@ -17,6 +19,7 @@ public class Category {
     @Column(unique = true, nullable = false)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     private Set<Movie> movies;
 
