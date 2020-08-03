@@ -31,10 +31,19 @@ public class Address {
     @Column(nullable = false)
     private String zipCode;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "address")
     private Set<Member> members;
 
     public Address() {
+    }
+
+    public Address(Long id, String street, String city, String state, String zipCode) {
+        this.id = id;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
     }
 
     public Address(Long id, String street, String city, String state, String zipCode, Set<Member> members) {
