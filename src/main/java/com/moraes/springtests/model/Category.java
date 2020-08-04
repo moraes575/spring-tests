@@ -26,6 +26,11 @@ public class Category {
     public Category() {
     }
 
+    public Category(Long id, @NotBlank String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Category(Long id, @NotBlank String name, Set<Movie> movies) {
         this.id = id;
         this.name = name;
